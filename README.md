@@ -301,13 +301,28 @@ Opción con npx:
 npx json-server --watch db.json --port 3000
 ```
 
-### 3) Ejecutar frontend en desarrollo
+### 3) Ejecutar frontend en desarrollo (Vite)
 
 ```bash
 npm run dev
 ```
 
 Vite mostrará una URL local (normalmente `http://localhost:5173`).
+
+### 4) Ejecutar frontend con `npx serve`
+
+Opción recomendada (producción local sobre build):
+```bash
+npm run build
+npx serve dist
+```
+
+Opción alternativa (estático directo desde código fuente):
+```bash
+npx serve .
+```
+
+> Nota: se añadió `src/standalone.js` y bootstrap dual en `index.html` para permitir carga correcta también en servidor estático.
 
 ---
 

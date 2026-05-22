@@ -1,6 +1,10 @@
 import { API_URL } from '../core/config.js';
 import { authFetch } from './httpClient.js';
 
+async function openFetch(url, options = {}) {
+    return fetch(url, options);
+}
+
 function extractData(json) {
     return json?.data;
 }
@@ -78,7 +82,7 @@ export async function userPost(name, email, document, password, role) {
         role: normalizeRoleForBackend(role)
     };
 
-    const response = await authFetch(`${API_URL}/users`, {
+    const response = await openFetch(`${API_URL}/users`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
